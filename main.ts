@@ -1,10 +1,11 @@
-import { Database } from "https://deno.land/x/sqlite3@0.9.1/mod.ts";
+import { DB, PreparedQuery } from "https://deno.land/x/sqlite/mod.ts";
+
 import { APIResponse, StopRealtime } from "./types.ts";
 
-function initDB(db: Database) {
-  db.exec("create table if not exists stops_history_raw (data json)");
+function initDB(db: DB): PreparedQuery {
+  db.execute("create table if not exists stops_history_raw (data json)");
 
-  db.exec(`CREATE TABLE if not exists stop_realtime (
+  db.execute(`CREATE TABLE if not exists stop_realtime (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     stopId TEXT,
     gtfsId TEXT,
@@ -37,6 +38,41 @@ function initDB(db: Database) {
     agency_name TEXT,
     agency_id TEXT
   )`);
+
+  return db.prepareQuery(`
+  INSERT INTO stop_realtime (
+    stopId,
+    gtfsId,
+    lat,
+    lon,
+    name,
+    desc,
+    zoneId,
+    serviceDay,
+    realtimeState,
+    realtimeDeparture,
+    scheduledDeparture,
+    realtimeArrival,
+    scheduledArrival,
+    arrivalDelay,
+    departureDelay,
+    realtime,
+    pickupType,
+    headsign,
+    trip_id,
+    trip_gtfsId,
+    trip_directionId,
+    trip_tripHeadsign,
+    route_id,
+    route_gtfsId,
+    route_shortName,
+    route_longName,
+    route_mode,
+    route_color,
+    agency_name,
+    agency_id
+  ) VALUES (:stopId,:gtfsId,:lat,:lon,:name,:desc,:zoneId,:serviceDay,:realtimeState,:realtimeDeparture,:scheduledDeparture,:realtimeArrival,:scheduledArrival,:arrivalDelay,:departureDelay,:realtime,:pickupType,:headsign,:trip_id,:trip_gtfsId,:trip_directionId,:trip_tripHeadsign,:route_id,:route_gtfsId,:route_shortName,:route_longName,:route_mode,:route_color,:agency_name,:agency_id)
+`);
 }
 
 async function getStopRealtime(): Promise<APIResponse | undefined> {
@@ -139,7 +175,7 @@ async function getStopRealtime(): Promise<APIResponse | undefined> {
       id_0: "2:BRRS2",
       startTime_1: new Date().getTime() / 1000, // Epoch time in seconds
       timeRange_2: 43200,
-      numberOfDepartures_3: 10,
+      numberOfDepartures_3: 5,
     },
   };
 
@@ -167,6 +203,8 @@ async function getStopRealtime(): Promise<APIResponse | undefined> {
     body: JSON.stringify(bodyQL),
   };
 
+  console.log("Fetching data");
+  
   const response = await fetch(
     "https://otp.services.porto.digital/otp/routers/default/index/graphql",
     options
@@ -174,7 +212,6 @@ async function getStopRealtime(): Promise<APIResponse | undefined> {
 
   if (response) {
     const json = (await response.json()) as APIResponse;
-    console.log("Got as response:", json);
     return json;
   }
 }
@@ -217,104 +254,66 @@ function convertToStopRealtime(response: APIResponse): StopRealtime[] {
   });
 }
 
-function storeResponse(db: Database, response: StopRealtime[]): void {
-  const stmt = db.prepare(`
-  INSERT INTO stop_realtime (
-    stopId,
-    gtfsId,
-    lat,
-    lon,
-    name,
-    desc,
-    zoneId,
-    serviceDay,
-    realtimeState,
-    realtimeDeparture,
-    scheduledDeparture,
-    realtimeArrival,
-    scheduledArrival,
-    arrivalDelay,
-    departureDelay,
-    realtime,
-    pickupType,
-    headsign,
-    trip_id,
-    trip_gtfsId,
-    trip_directionId,
-    trip_tripHeadsign,
-    route_id,
-    route_gtfsId,
-    route_shortName,
-    route_longName,
-    route_mode,
-    route_color,
-    agency_name,
-    agency_id
-  ) VALUES (:stopId,:gtfsId,:lat,:lon,:name,:desc,:zoneId,:serviceDay,:realtimeState,:realtimeDeparture,:scheduledDeparture,:realtimeArrival,:scheduledArrival,:arrivalDelay,:departureDelay,:realtime,:pickupType,:headsign,:trip_id,:trip_gtfsId,:trip_directionId,:trip_tripHeadsign,:route_id,:route_gtfsId,:route_shortName,:route_longName,:route_mode,:route_color,:agency_name,:agency_id)
-`);
-
-  const insertResponses = db.transaction((stops: StopRealtime[]) => {
-    console.log("Inserting", stops.length, "predictions");
-    
-    for (const stop of stops) {
-      stmt.run({
-        stopId: stop.stopId,
-        gtfsId: stop.gtfsId,
-        lat: stop.lat,
-        lon: stop.lon,
-        name: stop.name,
-        desc: stop.desc,
-        zoneId: stop.zoneId,
-        serviceDay: stop.serviceDay,
-        realtimeState: stop.realtimeState,
-        realtimeDeparture: stop.realtimeDeparture,
-        scheduledDeparture: stop.scheduledDeparture,
-        realtimeArrival: stop.realtimeArrival,
-        scheduledArrival: stop.scheduledArrival,
-        arrivalDelay: stop.arrivalDelay,
-        departureDelay: stop.departureDelay,
-        realtime: stop.realtime,
-        pickupType: stop.pickupType,
-        headsign: stop.headsign,
-        trip_id: stop.trip_id,
-        trip_gtfsId: stop.gtfsId,
-        trip_directionId: stop.trip_directionId,
-        trip_tripHeadsign: stop.trip_tripHeadsign,
-        route_id: stop.route_id,
-        route_gtfsId: stop.route_gtfsId,
-        route_shortName: stop.route_shortName,
-        route_longName: stop.route_longName,
-        route_mode: stop.route_mode,
-        route_color: stop.route_color,
-        agency_name: stop.agency_name,
-        agency_id: stop.agency_id,
-      });
-    }
-  });
-
+function storeResponse(
+  db: DB,
+  stmt: PreparedQuery,
+  stops: StopRealtime[]
+): void {
   try {
-    insertResponses(response);
+    db.transaction(() => {
+      console.log("Inserting", stops.length, "predictions");
+
+      for (const stop of stops) {
+        stmt.execute({
+          stopId: stop.stopId,
+          gtfsId: stop.gtfsId,
+          lat: stop.lat,
+          lon: stop.lon,
+          name: stop.name,
+          desc: stop.desc,
+          zoneId: stop.zoneId,
+          serviceDay: stop.serviceDay,
+          realtimeState: stop.realtimeState,
+          realtimeDeparture: stop.realtimeDeparture,
+          scheduledDeparture: stop.scheduledDeparture,
+          realtimeArrival: stop.realtimeArrival,
+          scheduledArrival: stop.scheduledArrival,
+          arrivalDelay: stop.arrivalDelay,
+          departureDelay: stop.departureDelay,
+          realtime: stop.realtime,
+          pickupType: stop.pickupType,
+          headsign: stop.headsign,
+          trip_id: stop.trip_id,
+          trip_gtfsId: stop.gtfsId,
+          trip_directionId: stop.trip_directionId,
+          trip_tripHeadsign: stop.trip_tripHeadsign,
+          route_id: stop.route_id,
+          route_gtfsId: stop.route_gtfsId,
+          route_shortName: stop.route_shortName,
+          route_longName: stop.route_longName,
+          route_mode: stop.route_mode,
+          route_color: stop.route_color,
+          agency_name: stop.agency_name,
+          agency_id: stop.agency_id,
+        });
+      }
+    });
   } catch (error) {
     console.log(error);
   }
 }
 
-async function run(db: Database): Promise<void> {
+async function run(db: DB, stmt: PreparedQuery): Promise<void> {
   const response = await getStopRealtime();
   if (!response) {
     console.log("No result");
   } else {
     const realtime = convertToStopRealtime(response);
-    storeResponse(db, realtime);
+    storeResponse(db, stmt, realtime);
   }
 }
 
-const db = new Database("stcp.db");
-
-try {
-  initDB(db);
-  await run(db);
-  // setInterval(() => run(db), 1000); // Run every 5 seconds
-} finally {
-  db.close();
-}
+const db = new DB("stcp.db");
+const stmt = initDB(db);
+await run(db, stmt);
+setInterval( () => run(db, stmt), 5000); // Run every 5 seconds
