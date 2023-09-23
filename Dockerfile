@@ -1,6 +1,6 @@
 # Based on https://github.com/denoland/deno_docker/blob/main/alpine.dockerfile
 
-ARG DENO_VERSION=1.14.0
+ARG DENO_VERSION=1.37.0
 ARG BIN_IMAGE=denoland/deno:bin-${DENO_VERSION}
 FROM ${BIN_IMAGE} AS bin
 
@@ -21,12 +21,11 @@ ENV DENO_VERSION=${DENO_VERSION}
 COPY --from=bin /deno /bin/deno
 
 # for alpine-based images
-COPY --from=flyio/litefs:0.5 /usr/local/bin/litefs /usr/local/bin/litefs
+# COPY --from=flyio/litefs:0.5 /usr/local/bin/litefs /usr/local/bin/litefs
 
 
 WORKDIR /deno-dir
 COPY . .
 
-# ENTRYPOINT ["/bin/deno"]
-ENTRYPOINT litefs mount
-CMD ["run", "--allow-net", "https://deno.land/std/examples/echo_server.ts"]
+ENTRYPOINT ["/bin/deno"]
+CMD ["run", "--allow-net", "--allow-read", "--allow-write", "main.ts"]
