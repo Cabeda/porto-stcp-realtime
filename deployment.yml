@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deno-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deno-app
+  template:
+    metadata:
+      labels:
+        app: deno-app
+    spec:
+      containers:
+        - name: deno-app
+          image: localhost/porto
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - name: deno-dir
+              mountPath: /deno-dir
+      volumes:
+        - name: deno-dir
+          hostPath:
+            path: /Users/josecabeda/Git/porto-stcp-realtime/data
+            type: Directory
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: deno-app
+spec:
+  selector:
+    app: deno-app
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+  type: NodePort

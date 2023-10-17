@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  myapp:
+    build: .
+    environment:
+      AWS_ACCESS_KEY_ID: AKIA4SD35BU6R6DKLUOV
+      AWS_SECRET_ACCESS_KEY: 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

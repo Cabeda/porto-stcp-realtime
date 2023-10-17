@@ -1,1 +1,7 @@
 *.db
+*.duckdb
+tmp
+*.parquet
+.DS_Store
+deno_loader
+.vscode

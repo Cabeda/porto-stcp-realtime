@@ -1,0 +1,1191 @@
+{
+	"data": {
+		"routes": [
+			{
+				"id": "Um91dGU6MjoyMDA=",
+				"gtfsId": "2:200",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "200",
+				"longName": "Bolhão - Cast. Queijo",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=200"
+			},
+			{
+				"id": "Um91dGU6MjoyMDE=",
+				"gtfsId": "2:201",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "201",
+				"longName": "Aliados - Viso",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=201"
+			},
+			{
+				"id": "Um91dGU6Mjox",
+				"gtfsId": "2:1",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "1",
+				"longName": "Infante - Passeio Alegre",
+				"mode": "TRAM",
+				"type": 0,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=1"
+			},
+			{
+				"id": "Um91dGU6MjoyMDQ=",
+				"gtfsId": "2:204",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "204",
+				"longName": "Hospital De S.João - Foz",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=204"
+			},
+			{
+				"id": "Um91dGU6Mjo0MDI=",
+				"gtfsId": "2:402",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "402",
+				"longName": "Boavista - S.Roque",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=402"
+			},
+			{
+				"id": "Um91dGU6Mjo2MDA=",
+				"gtfsId": "2:600",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "600",
+				"longName": "Aliados - Maia(Barca)",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=600"
+			},
+			{
+				"id": "Um91dGU6Mjo2MDE=",
+				"gtfsId": "2:601",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "601",
+				"longName": "Cordoaria - Aeroporto (via Mar Shopping)",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=601"
+			},
+			{
+				"id": "Um91dGU6MjoyMDU=",
+				"gtfsId": "2:205",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "205",
+				"longName": "Campanhã - Castelo Do Queijo",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=205"
+			},
+			{
+				"id": "Um91dGU6Mjo0MDM=",
+				"gtfsId": "2:403",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "403",
+				"longName": "Boavista (Casa Música) - Campanhã",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=403"
+			},
+			{
+				"id": "Um91dGU6Mjo5MDZN",
+				"gtfsId": "2:906M",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "906MV",
+				"longName": "906 Mares Vivas",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "https://www.stcp.pt/pt/noticias/a-viagem-ate-ao-festival-mares-vivas-faz-se-com-a-stcp/"
+			},
+			{
+				"id": "Um91dGU6MjoyMDI=",
+				"gtfsId": "2:202",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "202",
+				"longName": "Aliados - Passeio Alegre (via Av. Bessa)",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=202"
+			},
+			{
+				"id": "Um91dGU6Mjo5TQ==",
+				"gtfsId": "2:9M",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "9M",
+				"longName": "Rotunda Aep - Gondomar (via H. S. João)",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=9M"
+			},
+			{
+				"id": "Um91dGU6Mjo0MDA=",
+				"gtfsId": "2:400",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "400",
+				"longName": "Aliados - Parque Nascente",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=400"
+			},
+			{
+				"id": "Um91dGU6Mjo0MDE=",
+				"gtfsId": "2:401",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "401",
+				"longName": "Bolhão - S.Roque",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=401"
+			},
+			{
+				"id": "Um91dGU6MjoyMDM=",
+				"gtfsId": "2:203",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "203",
+				"longName": "Marquês - Cast.Queijo",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=203"
+			},
+			{
+				"id": "Um91dGU6Mjo2MDQ=",
+				"gtfsId": "2:604",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "604",
+				"longName": "Hospital S.João - Aeroporto(via Crestins)",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=604"
+			},
+			{
+				"id": "Um91dGU6MjoyMDg=",
+				"gtfsId": "2:208",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "208",
+				"longName": "Aliados - Aldoar",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=208"
+			},
+			{
+				"id": "Um91dGU6Mjo4MDM=",
+				"gtfsId": "2:803",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "803",
+				"longName": "Boavista - Rio Tinto(Esc. Sec.)",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=803"
+			},
+			{
+				"id": "Um91dGU6MjoyMDk=",
+				"gtfsId": "2:209",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "209",
+				"longName": "Pasteleira - Prelada",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=209"
+			},
+			{
+				"id": "Um91dGU6MjoyMDY=",
+				"gtfsId": "2:206",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "206",
+				"longName": "Campanhã - Viso",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=206"
+			},
+			{
+				"id": "Um91dGU6Mjo2MDI=",
+				"gtfsId": "2:602",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "602",
+				"longName": "Cordoaria - Aeroporto (via Padrão Moreira)",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=602"
+			},
+			{
+				"id": "Um91dGU6Mjo1TQ==",
+				"gtfsId": "2:5M",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "5M",
+				"longName": "Av.Aliados - Ermesinde (Estação)",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=5M"
+			},
+			{
+				"id": "Um91dGU6Mjo4MDA=",
+				"gtfsId": "2:800",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "800",
+				"longName": "Bolhão - Gondomar",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=800"
+			},
+			{
+				"id": "Um91dGU6Mjo2MDM=",
+				"gtfsId": "2:603",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "603",
+				"longName": "Marquês - Maia",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=603"
+			},
+			{
+				"id": "Um91dGU6MjoyMDc=",
+				"gtfsId": "2:207",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "207",
+				"longName": "Campanhã - Mercado Da Foz",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=207"
+			},
+			{
+				"id": "Um91dGU6Mjo4MDE=",
+				"gtfsId": "2:801",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "801",
+				"longName": "Cordoaria - S.Pedro Da Cova",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=801"
+			},
+			{
+				"id": "Um91dGU6Mjo4MDY=",
+				"gtfsId": "2:806",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "806",
+				"longName": "Marquês - Fânzeres (Metro)",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=806"
+			},
+			{
+				"id": "Um91dGU6MjoxTQ==",
+				"gtfsId": "2:1M",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "1M",
+				"longName": "Av.Aliados - Matosinhos (Praia)",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=1M"
+			},
+			{
+				"id": "Um91dGU6Mjo4MDQ=",
+				"gtfsId": "2:804",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "804",
+				"longName": "Hospital S.João - S.Pedro Da Cova",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=804"
+			},
+			{
+				"id": "Um91dGU6Mjo4MDU=",
+				"gtfsId": "2:805",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "805",
+				"longName": "Marquês - Rio Tinto (Estação)",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=805"
+			},
+			{
+				"id": "Um91dGU6MjoxOA==",
+				"gtfsId": "2:18",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "18",
+				"longName": "Clérigos - Passeio Alegre",
+				"mode": "TRAM",
+				"type": 0,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=18"
+			},
+			{
+				"id": "Um91dGU6MjoxMU0=",
+				"gtfsId": "2:11M",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "11M",
+				"longName": "Hosp. S. João - Coimbrões",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=11M"
+			},
+			{
+				"id": "Um91dGU6Mjo4TQ==",
+				"gtfsId": "2:8M",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "8M",
+				"longName": "Av.Aliados - S.Pedro Da Cova",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=8M"
+			},
+			{
+				"id": "Um91dGU6Mjo0TQ==",
+				"gtfsId": "2:4M",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "4M",
+				"longName": "Av.Aliados - Maia (Câmara)",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=4M"
+			},
+			{
+				"id": "Um91dGU6Mjo5MDc=",
+				"gtfsId": "2:907",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "907",
+				"longName": "Boavista - Vila D'Este",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=907"
+			},
+			{
+				"id": "Um91dGU6MTpCZXhw",
+				"gtfsId": "1:Bexp",
+				"agency": {
+					"id": "QWdlbmN5OjE6MQ==",
+					"gtfsId": "1:1",
+					"name": "Metro do Porto"
+				},
+				"shortName": "Bx",
+				"longName": "-",
+				"mode": "SUBWAY",
+				"type": 1,
+				"desc": null,
+				"url": null
+			},
+			{
+				"id": "Um91dGU6MjoxME0=",
+				"gtfsId": "2:10M",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "10M",
+				"longName": "Av.Aliados - Vila D'Este",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=10M"
+			},
+			{
+				"id": "Um91dGU6MjozMDA=",
+				"gtfsId": "2:300",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "300",
+				"longName": "Circular Hospital De S.João - Aliados",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=300"
+			},
+			{
+				"id": "Um91dGU6Mjo3TQ==",
+				"gtfsId": "2:7M",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "7M",
+				"longName": "Av.Aliados - Valongo",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=7M"
+			},
+			{
+				"id": "Um91dGU6Mjo1MDE=",
+				"gtfsId": "2:501",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "501",
+				"longName": "Aliados - Matosinhos (Praia)",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=501"
+			},
+			{
+				"id": "Um91dGU6MjozMDM=",
+				"gtfsId": "2:303",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "303",
+				"longName": "Circular Praça Da Liberdade - Constituição",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=303"
+			},
+			{
+				"id": "Um91dGU6MjozMDQ=",
+				"gtfsId": "2:304",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "304",
+				"longName": "Aliados - Sta. Luzia",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=304"
+			},
+			{
+				"id": "Um91dGU6Mjo3MDA=",
+				"gtfsId": "2:700",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "700",
+				"longName": "Bolhão - Campo",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=700"
+			},
+			{
+				"id": "Um91dGU6Mjo1MDI=",
+				"gtfsId": "2:502",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "502",
+				"longName": "Bolhão - Matosinhos (Mercado)",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=502"
+			},
+			{
+				"id": "Um91dGU6MjoxMDY=",
+				"gtfsId": "2:106",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "ZF",
+				"longName": "Valadares (Estação) - Francelos",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=106"
+			},
+			{
+				"id": "Um91dGU6MjozMDE=",
+				"gtfsId": "2:301",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "301",
+				"longName": "Circular Hospital S.João - Sá Da Bandeira",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=301"
+			},
+			{
+				"id": "Um91dGU6Mjo1MDA=",
+				"gtfsId": "2:500",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "500",
+				"longName": "Praça Liberdade - Matosinhos (Mercado)",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=500"
+			},
+			{
+				"id": "Um91dGU6MjozMDI=",
+				"gtfsId": "2:302",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "302",
+				"longName": "Circular Aliados - Damião De Gois",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=302"
+			},
+			{
+				"id": "Um91dGU6Mjo1MDU=",
+				"gtfsId": "2:505",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "505",
+				"longName": "Hospital S. João - Matosinhos (Mercado)",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=505"
+			},
+			{
+				"id": "Um91dGU6Mjo5MDE=",
+				"gtfsId": "2:901",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "901",
+				"longName": "Trindade - Valadares",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=901"
+			},
+			{
+				"id": "Um91dGU6Mjo3MDM=",
+				"gtfsId": "2:703",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "703",
+				"longName": "Cordoaria - Sonhos",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=703"
+			},
+			{
+				"id": "Um91dGU6MjozTQ==",
+				"gtfsId": "2:3M",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "3M",
+				"longName": "Av.Aliados - Aeroporto",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=3M"
+			},
+			{
+				"id": "Um91dGU6Mjo5MDI=",
+				"gtfsId": "2:902",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "902",
+				"longName": "Boavista - Lavadores",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=902"
+			},
+			{
+				"id": "Um91dGU6Mjo1MDY=",
+				"gtfsId": "2:506",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "506",
+				"longName": "Hospital S.João - Matosinhos (Mercado)",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=506"
+			},
+			{
+				"id": "Um91dGU6Mjo3MDQ=",
+				"gtfsId": "2:704",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "704",
+				"longName": "Boavista - Codiceira",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=704"
+			},
+			{
+				"id": "Um91dGU6MjozMDU=",
+				"gtfsId": "2:305",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "305",
+				"longName": "Cordoaria - Hospital De S.João",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=305"
+			},
+			{
+				"id": "Um91dGU6MjoxMDc=",
+				"gtfsId": "2:107",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "ZC",
+				"longName": "Estádio Do Dragão - Areias",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=107"
+			},
+			{
+				"id": "Um91dGU6Mjo3MDE=",
+				"gtfsId": "2:701",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "701",
+				"longName": "Bolhão - Codiceira",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=701"
+			},
+			{
+				"id": "Um91dGU6Mjo1MDM=",
+				"gtfsId": "2:503",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "503",
+				"longName": "Boavista (Bom Sucesso) -  Gatões",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=503"
+			},
+			{
+				"id": "Um91dGU6Mjo5MDA=",
+				"gtfsId": "2:900",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "900",
+				"longName": "Cordoaria - Sto. Ovídio",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=900"
+			},
+			{
+				"id": "Um91dGU6Mjo3MDI=",
+				"gtfsId": "2:702",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "702",
+				"longName": "Bolhão - Travagem",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=702"
+			},
+			{
+				"id": "Um91dGU6Mjo1MDQ=",
+				"gtfsId": "2:504",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "504",
+				"longName": "Boavista - Norteshopping",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=504"
+			},
+			{
+				"id": "Um91dGU6Mjo3MDc=",
+				"gtfsId": "2:707",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "707",
+				"longName": "H.S.João - Ermesinde(Est)via Arregadas",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=707"
+			},
+			{
+				"id": "Um91dGU6Mjo5MDU=",
+				"gtfsId": "2:905",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "905",
+				"longName": "Bolhão - Monte Da Virgem",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=905"
+			},
+			{
+				"id": "Um91dGU6Mjo5MDY=",
+				"gtfsId": "2:906",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "906",
+				"longName": "Trindade - Madalena",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=906"
+			},
+			{
+				"id": "Um91dGU6Mjo3MDU=",
+				"gtfsId": "2:705",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "705",
+				"longName": "Hospital S. João - Valongo (Continente)",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=705"
+			},
+			{
+				"id": "Um91dGU6Mjo1MDc=",
+				"gtfsId": "2:507",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "507",
+				"longName": "Cordoaria - Mar Shopping",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=507"
+			},
+			{
+				"id": "Um91dGU6Mjo5MDM=",
+				"gtfsId": "2:903",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "903",
+				"longName": "Boavista - Vilar Do Paraíso",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=903"
+			},
+			{
+				"id": "Um91dGU6Mjo3MDY=",
+				"gtfsId": "2:706",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "706",
+				"longName": "H.S.João - Ermesinde(Est)via Mte Penedo",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=706"
+			},
+			{
+				"id": "Um91dGU6Mjo5MDQ=",
+				"gtfsId": "2:904",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "904",
+				"longName": "Bolhão - Coimbrões",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=904"
+			},
+			{
+				"id": "Um91dGU6Mjo1MDg=",
+				"gtfsId": "2:508",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "508",
+				"longName": "Boavista - Cabo Do Mundo (via Mar Shop.)",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=508"
+			},
+			{
+				"id": "Um91dGU6MjoxM00=",
+				"gtfsId": "2:13M",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "13M",
+				"longName": "Av.Aliados - Matosinhos (Mercado)",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=13M"
+			},
+			{
+				"id": "Um91dGU6MTpB",
+				"gtfsId": "1:A",
+				"agency": {
+					"id": "QWdlbmN5OjE6MQ==",
+					"gtfsId": "1:1",
+					"name": "Metro do Porto"
+				},
+				"shortName": "A",
+				"longName": "-",
+				"mode": "SUBWAY",
+				"type": 1,
+				"desc": null,
+				"url": null
+			},
+			{
+				"id": "Um91dGU6MTpD",
+				"gtfsId": "1:C",
+				"agency": {
+					"id": "QWdlbmN5OjE6MQ==",
+					"gtfsId": "1:1",
+					"name": "Metro do Porto"
+				},
+				"shortName": "C",
+				"longName": "-",
+				"mode": "SUBWAY",
+				"type": 1,
+				"desc": null,
+				"url": null
+			},
+			{
+				"id": "Um91dGU6MTpC",
+				"gtfsId": "1:B",
+				"agency": {
+					"id": "QWdlbmN5OjE6MQ==",
+					"gtfsId": "1:1",
+					"name": "Metro do Porto"
+				},
+				"shortName": "B",
+				"longName": "-",
+				"mode": "SUBWAY",
+				"type": 1,
+				"desc": null,
+				"url": null
+			},
+			{
+				"id": "Um91dGU6MTpF",
+				"gtfsId": "1:E",
+				"agency": {
+					"id": "QWdlbmN5OjE6MQ==",
+					"gtfsId": "1:1",
+					"name": "Metro do Porto"
+				},
+				"shortName": "E",
+				"longName": "-",
+				"mode": "SUBWAY",
+				"type": 1,
+				"desc": null,
+				"url": null
+			},
+			{
+				"id": "Um91dGU6MTpE",
+				"gtfsId": "1:D",
+				"agency": {
+					"id": "QWdlbmN5OjE6MQ==",
+					"gtfsId": "1:1",
+					"name": "Metro do Porto"
+				},
+				"shortName": "D",
+				"longName": "-",
+				"mode": "SUBWAY",
+				"type": 1,
+				"desc": null,
+				"url": null
+			},
+			{
+				"id": "Um91dGU6MTpG",
+				"gtfsId": "1:F",
+				"agency": {
+					"id": "QWdlbmN5OjE6MQ==",
+					"gtfsId": "1:1",
+					"name": "Metro do Porto"
+				},
+				"shortName": "F",
+				"longName": "-",
+				"mode": "SUBWAY",
+				"type": 1,
+				"desc": null,
+				"url": null
+			},
+			{
+				"id": "Um91dGU6MjoxMk0=",
+				"gtfsId": "2:12M",
+				"agency": {
+					"id": "QWdlbmN5OjI6U1RDUA==",
+					"gtfsId": "2:STCP",
+					"name": "Sociedade Transportes Colectivos do Porto"
+				},
+				"shortName": "12M",
+				"longName": "Av.Aliados - Sto.Ovídio",
+				"mode": "BUS",
+				"type": 3,
+				"desc": null,
+				"url": "http://www.stcp.pt/pt/viajar/linhas/?linha=12M"
+			}
+		]
+	}
+}

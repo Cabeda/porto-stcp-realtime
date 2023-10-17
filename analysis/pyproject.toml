@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "analysis"
+version = "0.1.0"
+description = ""
+authors = ["José Cabeda <jose.cabeda@fidel.uk>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+streamlit = "^1.27.2"
+duckdb = "^0.9.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
