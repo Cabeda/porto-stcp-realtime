@@ -3,5 +3,5 @@
 tmp
 *.parquet
 .DS_Store
-deno_loader
+deno_loader/deno_loader
 .vscode
