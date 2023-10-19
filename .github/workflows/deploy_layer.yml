@@ -57,7 +57,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: eu-central-1
         run: |
-          aws lambda publish-layer-version --layer-name porto-py-loader --content S3Bucket=porto-realtime-transport,S3Key=lambda/bin/loader-layer.zip --compatible-runtimes python3.10 python3.11 --description "${{ github.event.head_commit.message }}"
+          aws lambda publish-layer-version --layer-name porto-py-loader --content S3Bucket=porto-realtime-transport,S3Key=lambda/loader-layer.zip --compatible-runtimes python3.10 python3.11 --description "${{ github.event.head_commit.message }}"
 
 
       - name: Publish lambda
@@ -66,4 +66,4 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: eu-central-1
         run: |
-          aws lambda update-function-code --function-name porto-realtime-loader --s3-bucket porto-realtime-transport --s3-key lambda/bin/loader.zip
+          aws lambda update-function-code --function-name porto-realtime-loader --s3-bucket porto-realtime-transport --s3-key lambda/loader.zip
