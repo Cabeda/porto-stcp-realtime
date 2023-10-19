@@ -42,8 +42,8 @@ jobs:
           SOURCE_DIR: loader-layer.zip
           DEST_DIR: /
 
-    #   - name: Publish layer
-    #     run: |
-    #       aws lambda publish-layer-version --layer-name porto-py-loader --content S3Bucket=porto-realtime-transport,S3Key=loader-layer.zip --compatible-runtimes python3.11,python3.10 --profile personal
-    #     env:
-    #       AWS_REGION: eu-central-1
+      - name: Publish layer
+        run: |
+          aws lambda publish-layer-version --layer-name porto-py-loader --content S3Bucket=porto-realtime-transport,S3Key=loader-layer.zip --compatible-runtimes python3.10 python3.11
+        env:
+          AWS_REGION: eu-central-1
