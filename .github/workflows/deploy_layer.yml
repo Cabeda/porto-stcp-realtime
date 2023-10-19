@@ -30,6 +30,12 @@ jobs:
           rm -rf python/*dist-info
           zip -r9 ../loader-layer.zip . -x "file_data/*" -x '*.pyc'
 
+      - name: Store artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: loader-layer.zip
+          path: layer/loader-layer.zip
+
       - name: Upload layer to S3
         uses: jakejarvis/s3-sync-action@master
         with:
@@ -39,7 +45,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_S3_BUCKET: porto-realtime-transport
           AWS_REGION: eu-central-1
-          SOURCE_DIR: public/loader-layer.zip
+          SOURCE_DIR: layer/loader-layer.zip
           DEST_DIR: /
 
       - name: Publish layer
