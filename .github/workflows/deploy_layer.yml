@@ -65,4 +65,4 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: eu-central-1
         run: |
-          aws lambda update-function-code --function-name explore-porto-to-parquet --s3-bucket porto-realtime-transport --s3-key lambda/bin/loader.zip
+          aws lambda update-function-code --function-name porto-realtime-loader --s3-bucket porto-realtime-transport --s3-key lambda/bin/loader.zip
