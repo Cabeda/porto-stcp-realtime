@@ -10,3 +10,4 @@ file_data
 loader/python
 .envrc
 __pycache__
+bin
