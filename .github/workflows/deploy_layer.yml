@@ -30,6 +30,12 @@ jobs:
           rm -rf python/*dist-info
           zip -r9 ../loader-layer.zip . -x "file_data/*" -x '*.pyc'
 
+      - name: Store artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: loader-layer
+          path: loader-layer.zip
+
       - name: Upload layer to S3
         uses: jakejarvis/s3-sync-action@master
         with:
