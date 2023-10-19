@@ -3,8 +3,7 @@
 cd loader || exit
 rm -rf python
 poetry export --format=requirements.txt --output=requirements.txt --without-hashes
-poetry run pip install --upgrade -t python dist/*.whl
-# pip install -r requirements.txt -t python
+pip install -r requirements.txt -t python
 rm -rf python/*dist-info
 zip -r9 ../loader-layer.zip . -x "file_data/*" -x '*.pyc'
 aws s3 mv ../loader-layer.zip s3://porto-realtime-transport/  
