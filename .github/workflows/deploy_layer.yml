@@ -23,7 +23,7 @@ jobs:
 
       - name: Build layer
         run: |
-          mkdir bin
+          mkdir -p bin
           cd loader || exit
           rm -rf python
           poetry export --format=requirements.txt --output=requirements.txt --without-hashes
@@ -32,6 +32,12 @@ jobs:
           cd ..
           zip -r9 ./bin/loader-layer.zip ./loader -x "*/file_data/*" -x '*.pyc'
           echo "Layer size: $(du -sh ./bin/loader-layer.zip | cut -f1)"
+
+      - name: Build lambda
+        run: |
+          mkdir -p bin
+          zip -r9 ./bin/loader.zip ./loader -x "*/file_data/*" -x '*.pyc' -x "python/*"
+          echo "Lambda size: $(du -sh ./bin/loader.zip | cut -f1)"
 
       - name: Push zip to S3
         uses: jakejarvis/s3-sync-action@master
@@ -42,7 +48,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_S3_BUCKET: porto-realtime-transport
           AWS_REGION: eu-central-1
-          DEST_DIR: /lambda/
+          DEST_DIR: lambda/
 
       - name: Publish layer
         env:
@@ -50,4 +56,13 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: eu-central-1
         run: |
-          aws lambda publish-layer-version --layer-name porto-py-loader --content S3Bucket=porto-realtime-transport,S3Key=loader-layer.zip --compatible-runtimes python3.10 python3.11
+          aws lambda publish-layer-version --layer-name porto-py-loader --content S3Bucket=porto-realtime-transport,S3Key=lambda/bin/loader-layer.zip --compatible-runtimes python3.10 python3.11 --description "${{ github.event.head_commit.message }}"
+
+
+      - name: Publish lambda
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: eu-central-1
+        run: |
+          aws lambda update-function-code --function-name explore-porto-to-parquet --s3-bucket porto-realtime-transport --s3-key lambda/bin/loader.zip
