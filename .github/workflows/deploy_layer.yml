@@ -35,8 +35,8 @@ jobs:
         with:
           args: --follow-symlinks --delete
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.prod.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.prod.AWS_SECRET_ACCESS_KEY }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_S3_BUCKET: porto-realtime-transport
           AWS_REGION: eu-central-1
           SOURCE_DIR: loader-layer.zip
@@ -44,8 +44,8 @@ jobs:
 
       - name: Publish layer
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.prod.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.prod.AWS_SECRET_ACCESS_KEY }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: eu-central-1
         run: |
           aws lambda publish-layer-version --layer-name porto-py-loader --content S3Bucket=porto-realtime-transport,S3Key=loader-layer.zip --compatible-runtimes python3.10 python3.11
