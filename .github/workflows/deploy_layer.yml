@@ -36,7 +36,7 @@ jobs:
       - name: Build lambda
         run: |
           mkdir -p bin
-          zip -r9 ./bin/loader.zip ./loader -x "*/file_data/*" -x '*.pyc' -x "python/*"
+          zip -r9 ./bin/loader.zip ./loader -x "*/file_data/*" -x '*.pyc' -x "*/python/**"
           echo "Lambda size: $(du -sh ./bin/loader.zip | cut -f1)"
 
       - name: Push zip to S3

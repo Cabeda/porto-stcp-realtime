@@ -174,7 +174,6 @@ def lambda_handler(event, context):
     response = get_stop_realtime(date)
     df = pl.DataFrame(response)
 
-    # table = Table.from_pandas(df)
     write_to_parquet(df, path)
     write_to_s3(s3, f"{filename}.parquet")
 
