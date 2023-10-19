@@ -1,14 +1,13 @@
 import json
+import pathlib
 import time
+import urllib.request
 
 import boto3
-import pandas as pd
-import pyarrow.parquet as pq
-import requests
-from pyarrow import Table
+import polars as pl
 
 
-def get_stop_realtime(date: int) -> Table:
+def get_stop_realtime(date: int) -> json:
     query = """
     query StopRoute(
       $startTime_1: Long!
@@ -124,58 +123,65 @@ def get_stop_realtime(date: int) -> Table:
 
     print(f"Fetching data for period {date}")
 
-    response = requests.post(
-        "https://otp.services.porto.digital/otp/routers/default/index/graphql",
+    req = urllib.request.Request(
+        url="https://otp.services.porto.digital/otp/routers/default/index/graphql",
         headers=headers,
-        data=json.dumps(bodyQL),
+        data=json.dumps(bodyQL).encode("utf-8"),
+        method="POST",
     )
 
-    if response.status_code == 200:
-        json_data = response.json()
-        if "errors" in json_data:
-            print(json_data["errors"])
+    with urllib.request.urlopen(req) as response:
+        if response.status == 200:
+            json_data = json.loads(response.read().decode("utf-8"))
+            if "errors" in json_data:
+                print(json_data["errors"])
+                return None
+            return json_data["data"]["stops"]
+        else:
+            print(f"Error: {response.status}")
             return None
-        return json_data["data"]["stops"]
-    else:
-        print(f"Error: {response.status_code}")
-        return None
+
 
 def write_to_json(data, filename: str):
-    with open(filename, 'w') as f:
+    with open(filename, "w") as f:
         json.dump(data, f)
 
-def write_to_parquet(df: Table, filename: str):
+
+def write_to_parquet(df, filename: pathlib.Path):
     print(f"Writing {filename}")
-    pq.write_table(df, filename)
+    # pq.write_table(df, filename)
+    pathlib.Path("file_data").mkdir(parents=True, exist_ok=True)
+    df.write_parquet(filename)
+
 
 def write_to_s3(s3Client, filename):
     # Upload the Parquet file to S3
     print(f"Uploading {filename} to S3")
-    bucket_name = 'porto-realtime-transport'
+    bucket_name = "porto-realtime-transport"
     s3Client.upload_file(filename, bucket_name, filename)
     # Delete the local Parquet file
-    #os.remove(filename)
+    # os.remove(filename)
+
+
+def lambda_handler(event, context):
+    session = boto3.Session()
+    s3 = session.client("s3")
+
+    date = int(time.time())
+    filename = f"file_data/{date}"
+    path: pathlib.Path = pathlib.Path(f"file_data/{date}.parquet")
+
+    response = get_stop_realtime(date)
+    df = pl.DataFrame(response)
+
+    # table = Table.from_pandas(df)
+    write_to_parquet(df, path)
+    write_to_s3(s3, f"{filename}.parquet")
+
 
 if __name__ == "__main__":
-    session = boto3.Session(profile_name='personal')
-    s3 = session.client('s3')
-    
     while True:
-        
-      date = int(time.time())
-      filename = f"file_data/{date}"
-      
 
-      response = get_stop_realtime(date)
-      df = pd.DataFrame(response)
-      table = Table.from_pandas(df)
-      write_to_parquet(table, f"{filename}.parquet")
-      write_to_s3(s3, f"{filename}.parquet")
-
-      print("Sleeping for 60 seconds")
-      time.sleep(60)
-  
-  
-    
-
-        
+        lambda_handler({}, None)
+        print("Sleeping for 60 seconds")
+        time.sleep(60)

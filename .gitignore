@@ -5,3 +5,8 @@ tmp
 .DS_Store
 deno_loader/deno_loader
 .vscode
+*.zip
+file_data
+loader/python
+.envrc
+__pycache__

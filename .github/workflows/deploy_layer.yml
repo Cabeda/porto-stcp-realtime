@@ -1,0 +1,48 @@
+name: Deploy Lambda Layer
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+
+      - name: Install dependencies
+        run: |
+          pip install poetry
+          poetry install
+
+      - name: Build layer
+        run: |
+          cd loader || exit
+          rm -rf python
+          poetry export --format=requirements.txt --output=requirements.txt --without-hashes
+          poetry run pip install --upgrade -t python dist/*.whl
+          rm -rf python/*dist-info
+          zip -r9 ../loader-layer.zip . -x "file_data/*" -x '*.pyc'
+
+      - name: Upload layer to S3
+        uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --acl public-read
+        env:
+          AWS_S3_BUCKET: porto-realtime-transport
+          AWS_REGION: eu-central-1
+          SOURCE_DIR: loader-layer.zip
+          DEST_DIR: /
+
+    #   - name: Publish layer
+    #     run: |
+    #       aws lambda publish-layer-version --layer-name porto-py-loader --content S3Bucket=porto-realtime-transport,S3Key=loader-layer.zip --compatible-runtimes python3.11,python3.10 --profile personal
+    #     env:
+    #       AWS_REGION: eu-central-1
