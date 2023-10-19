@@ -31,10 +31,10 @@ jobs:
           zip -r9 ../loader-layer.zip . -x "file_data/*" -x '*.pyc'
 
       - name: Store artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: loader-layer
-          path: loader-layer.zip
+          path: /github/workspace/loader-layer.zip
 
       - name: Upload layer to S3
         uses: jakejarvis/s3-sync-action@master
