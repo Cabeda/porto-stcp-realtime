@@ -1,0 +1,35 @@
+service: porto-loader
+
+frameworkVersion: "3"
+
+# plugins:
+#   - serverless-python-requirements
+
+# custom:
+#   pythonRequirements:
+#     dockerizePip: non-linux
+
+provider:
+  name: aws
+  runtime: python3.11
+  region: eu-central-1
+  architecture: arm64
+  deploymentMethod: direct
+  timeout: 20
+  memorySize: 512
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - s3:PutObject
+          Resource: arn:aws:s3:::porto-realtime-transport/*
+
+functions:
+  # Set the lambda function schedule to every minute
+  porto-realtime-loader:
+    handler: main.handler
+    layers:
+      - arn:aws:lambda:eu-central-1:336392948345:layer:AWSSDKPandas-Python311-Arm64:2
+    events:
+      - schedule: rate(1 minute)

@@ -1,0 +1,15 @@
+{
+  "name": "loader",
+  "version": "1.0.0",
+  "description": "Executes request to explore.porto.pt and writes to S3 bucket in parquet files.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "serverless": "^3.35.2",
+    "serverless-python-requirements": "^6.0.0"
+  }
+}

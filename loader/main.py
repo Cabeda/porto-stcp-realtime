@@ -4,7 +4,7 @@ import time
 import urllib.request
 
 import boto3
-import polars as pl
+import pandas as pd
 
 
 def get_stop_realtime(date: int) -> json:
@@ -150,37 +150,41 @@ def write_to_json(data, filename: str):
 def write_to_parquet(df, filename: pathlib.Path):
     print(f"Writing {filename}")
     # pq.write_table(df, filename)
-    pathlib.Path("file_data").mkdir(parents=True, exist_ok=True)
-    df.write_parquet(filename)
+    # pathlib.Path("file_data").mkdir(parents=True, exist_ok=True)
+    df.to_parquet(filename)
 
 
-def write_to_s3(s3Client, filename):
+def write_to_s3(s3Client, file_path, filename):
     # Upload the Parquet file to S3
     print(f"Uploading {filename} to S3")
     bucket_name = "porto-realtime-transport"
-    s3Client.upload_file(filename, bucket_name, filename)
+    s3Client.upload_file(file_path, bucket_name, filename)
     # Delete the local Parquet file
     # os.remove(filename)
 
 
-def lambda_handler(event, context):
+def handler(event, context):
     session = boto3.Session()
     s3 = session.client("s3")
 
     date = int(time.time())
-    filename = f"file_data/{date}"
-    path: pathlib.Path = pathlib.Path(f"file_data/{date}.parquet")
+    filename = f"{date}.parquet"
+    path: pathlib.Path = pathlib.Path(f"/tmp/{filename}")
 
     response = get_stop_realtime(date)
-    df = pl.DataFrame(response)
+    df = pd.DataFrame(response)
 
     write_to_parquet(df, path)
-    write_to_s3(s3, f"{filename}.parquet")
+    write_to_s3(s3, path, f"file_data/{filename}")
+    return {
+    'statusCode': 200,
+    'body': f"Written {filename} to S3 with success!"
+  }
 
 
 if __name__ == "__main__":
     while True:
 
-        lambda_handler({}, None)
+        handler({}, None)
         print("Sleeping for 60 seconds")
         time.sleep(60)

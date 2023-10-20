@@ -6,9 +6,13 @@ authors = ["José Cabeda <jose.cabeda@fidel.uk>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = ">=3.10"
-polars = "^0.19.9"
+python = "~3.11"
+pandas = "^2.1.1"
+pyarrow = "^13.0.0"
 
+
+[tool.poetry.group.dev.dependencies]
+boto3 = "^1.28.67"
 
 [build-system]
 requires = ["poetry-core"]

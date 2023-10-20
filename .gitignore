@@ -1,3 +1,24 @@
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Serverless directories
+.serverless
+
 *.db
 *.duckdb
 tmp
@@ -11,3 +32,6 @@ loader/python
 .envrc
 __pycache__
 bin
+loader/node_modules/*
+node_modules
+.pytest_cache

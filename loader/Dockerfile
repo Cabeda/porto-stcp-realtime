@@ -16,4 +16,4 @@ RUN poetry config virtualenvs.create false && \
     poetry install --no-dev
 
 # Run main.py when the container launches
-CMD ["python", "lambda_function.py"]
+CMD ["python", "main.py"]
