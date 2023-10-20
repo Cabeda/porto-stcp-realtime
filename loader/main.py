@@ -1,3 +1,4 @@
+import datetime
 import json
 import pathlib
 import time
@@ -149,8 +150,6 @@ def write_to_json(data, filename: str):
 
 def write_to_parquet(df, filename: pathlib.Path):
     print(f"Writing {filename}")
-    # pq.write_table(df, filename)
-    # pathlib.Path("file_data").mkdir(parents=True, exist_ok=True)
     df.to_parquet(filename)
 
 
@@ -159,8 +158,6 @@ def write_to_s3(s3Client, file_path, filename):
     print(f"Uploading {filename} to S3")
     bucket_name = "porto-realtime-transport"
     s3Client.upload_file(file_path, bucket_name, filename)
-    # Delete the local Parquet file
-    # os.remove(filename)
 
 
 def handler(event, context):
@@ -169,13 +166,17 @@ def handler(event, context):
 
     date = int(time.time())
     filename = f"{date}.parquet"
+    year = datetime.datetime.now().year
+    month = datetime.datetime.now().month
+    day = datetime.datetime.now().day
+    print(f"Year: {year}, Month: {month}, Day: {day}")
     path: pathlib.Path = pathlib.Path(f"/tmp/{filename}")
-
+    print(f"file_data/{year}/{month}/{day}/{filename}")
     response = get_stop_realtime(date)
     df = pd.DataFrame(response)
 
     write_to_parquet(df, path)
-    write_to_s3(s3, path, f"file_data/{filename}")
+    write_to_s3(s3, path, f"file_data/{year}/{month}/{day}/{filename}")
     return {
     'statusCode': 200,
     'body': f"Written {filename} to S3 with success!"
