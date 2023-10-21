@@ -1,11 +1,18 @@
 import datetime
 import json
+import logging
 import pathlib
 import time
 import urllib.request
 
 import boto3
 import pandas as pd
+
+logger = logging.getLogger()
+logger.setLevel(logging.ERROR)
+
+sns_client = boto3.client('sns')
+topic_arn = 'arn:aws:sns:eu-central-1:380030078937:porto-realtime-errors'
 
 
 def get_stop_realtime(date: int) -> json:
@@ -161,26 +168,35 @@ def write_to_s3(s3Client, file_path, filename):
 
 
 def handler(event, context):
-    session = boto3.Session()
-    s3 = session.client("s3")
+    try:
+      session = boto3.Session()
+      s3 = session.client("s3")
 
-    date = int(time.time())
-    filename = f"{date}.parquet"
-    year = datetime.datetime.now().year
-    month = datetime.datetime.now().month
-    day = datetime.datetime.now().day
-    print(f"Year: {year}, Month: {month}, Day: {day}")
-    path: pathlib.Path = pathlib.Path(f"/tmp/{filename}")
-    print(f"file_data/{year}/{month}/{day}/{filename}")
-    response = get_stop_realtime(date)
-    df = pd.DataFrame(response)
+      date = int(time.time())
+      filename = f"{date}.parquet"
+      year = datetime.datetime.now().year
+      month = datetime.datetime.now().month
+      day = datetime.datetime.now().day
+      print(f"Year: {year}, Month: {month}, Day: {day}")
+      path: pathlib.Path = pathlib.Path(f"/tmp/{filename}")
+      print(f"file_data/{year}/{month}/{day}/{filename}")
+      response = get_stop_realtime(date)
+      df = pd.DataFrame(response)
 
-    write_to_parquet(df, path)
-    write_to_s3(s3, path, f"file_data/{year}/{month}/{day}/{filename}")
-    return {
-    'statusCode': 200,
-    'body': f"Written {filename} to S3 with success!"
-  }
+      write_to_parquet(df, path)
+      write_to_s3(s3, path, f"file_data/{year}/{month}/{day}/{filename}")
+      return {
+      'statusCode': 200,
+      'body': f"Written {filename} to S3 with success!"
+    }
+    except Exception as e:
+      logger.error(e)
+      sns_client.publish(
+            TopicArn=topic_arn,
+            Subject='Porto realtime function error',
+            Message=str(e)
+        )
+      raise e
 
 
 if __name__ == "__main__":

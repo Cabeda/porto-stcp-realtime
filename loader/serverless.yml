@@ -24,6 +24,10 @@ provider:
           Action:
             - s3:PutObject
           Resource: arn:aws:s3:::porto-realtime-transport/*
+        - Effect: Allow
+          Action:
+            - sns:Publish
+          Resource: arn:aws:sns:eu-central-1:380030078937:porto-realtime-transport.fifo
 
 functions:
   # Set the lambda function schedule to every minute
