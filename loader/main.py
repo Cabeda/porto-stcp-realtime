@@ -182,6 +182,7 @@ def handler(event, context):
       print(f"file_data/{year}/{month}/{day}/{filename}")
       response = get_stop_realtime(date)
       df = pd.DataFrame(response)
+      df["created_at"] = datetime.datetime.now()
 
       write_to_parquet(df, path)
       write_to_s3(s3, path, f"file_data/{year}/{month}/{day}/{filename}")
