@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "analysis"
+name = "dbt-porto-transports"
 version = "0.1.0"
 description = ""
 authors = ["José Cabeda <jose.cabeda@fidel.uk>"]
@@ -7,8 +7,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-streamlit = "^1.27.2"
-duckdb = "^0.9.1"
+dbt-duckdb = "^1.6.2"
 
 
 [build-system]
