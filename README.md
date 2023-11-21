@@ -4,10 +4,21 @@ Repo to store the code for the porto-stcp-realtime project.
 
 The goal of this project is to retrieve the real-time information of the STCP buses in Porto, Portugal and analyze it against the provided schedule.
 
-## Compile
+## Run Deno
+
+On the deno_loader folder, install deno and run the following command:
 
 ```shell
-deno compile --allow-read --allow-net --allow-write main.ts
+deno run --allow-read --allow-net --allow-write main.ts
+```
+
+## Run Python loader script
+
+On the loader folder, install poetry and run the following commands:
+
+```shell
+poetry install
+poetry run python3 loader.py
 ```
 
 ### Deployment
@@ -41,8 +52,8 @@ Which should result in response similar to the following:
 
 ```json
 {
-    "statusCode": 200,
-    "body": "{\"message\": \"Go Serverless v3.0! Your function executed successfully!\", \"input\": {}}"
+  "statusCode": 200,
+  "body": "{\"message\": \"Go Serverless v3.0! Your function executed successfully!\", \"input\": {}}"
 }
 ```
 

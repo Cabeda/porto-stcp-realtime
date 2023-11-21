@@ -8,6 +8,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.10"
 dbt-duckdb = "^1.6.2"
+boto3 = "^1.29.0"
 
 
 [build-system]

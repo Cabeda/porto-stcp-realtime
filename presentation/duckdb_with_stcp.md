@@ -39,7 +39,7 @@ José Cabeda
 
 ---
 
-# Can we see this=
+# Can we fix this=
 
 - In recent years we've got a new platform explore porto explore.porto.pt/
 - Supports
