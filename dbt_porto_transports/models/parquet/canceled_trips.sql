@@ -10,5 +10,5 @@ select
     max(REALTIME) as realtime,
     epoch_ms(1000 * SERVICEDAY) as SERVICEDAY,
     min(epoch_ms(1000 * (SCHEDULEDDEPARTURE)))
-from trip_stops
+from {{ref("trip_stops")}}
 group by all

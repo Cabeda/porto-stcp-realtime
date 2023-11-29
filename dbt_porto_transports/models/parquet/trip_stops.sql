@@ -19,7 +19,7 @@ with unnested_stops as (
         "gtfsId",
         "desc",
         UNNEST(_stoptimeswithoutpatterns24f6pa) as stop_times
-    from {{ref('november')}}
+    from {{ref('trip_stops_raw')}}
 )
 select 
     unnested_stops.id,

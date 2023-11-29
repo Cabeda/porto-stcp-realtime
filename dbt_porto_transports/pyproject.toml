@@ -6,8 +6,8 @@ authors = ["José Cabeda <jose.cabeda@fidel.uk>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10"
-dbt-duckdb = "^1.7.2"
+python = ">=3.10,<3.13"
+dbt-duckdb = "^1.7.0"
 boto3 = "^1.29.0"
 
 
