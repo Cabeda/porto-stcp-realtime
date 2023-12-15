@@ -1,17 +1,26 @@
 ---
-title: Delays of buses per stop
+title: Info about bus and metro stops
 ---
 
-This demo [connects](/settings) to a local DuckDB file `analysis.duckdb`.
+Go to settings and point to the anaylsis.duckdb
 
 ## Stops
 
 ```sql stops
 select
-  *
+  name, lat, lon, zoneId, route_shortName, route_longName
 from stops
-limit 10
+limit 500
 ```
+
+<LeafletMap
+data={stops}
+lat=lat
+long=lon
+name=name
+tooltipFields={['zoneId', 'route_shortName', 'route_longName']}
+height=500
+/>
 
 ```sql total_stops
 select
@@ -20,21 +29,3 @@ from stops
 ```
 
 <BigValue data={total_stops} value=total/>
-
-## Trips
-
-```sql trip_stops
-select *
-from trip_stops
-limit 100
-```
-
-
-## Stops average cancelations
-
-```sql stops_cancelations
-select route_shortName || ' - ' || route_longName as routeName, ratio, *
-from canceled_trips_agg
-where route_longName != '-'
-order by ratio asc
-```

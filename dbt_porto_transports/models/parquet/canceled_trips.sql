@@ -4,6 +4,7 @@
     )
 }}
 select
+    stopId,
     ROUTE_SHORTNAME,
     ROUTE_LONGNAME,
     TRIP_ID,

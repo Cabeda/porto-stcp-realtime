@@ -1,6 +1,12 @@
+{{
+    config(
+        materialized='table'
+    )
+}}
 with all_times as (
     from trip_stops
     select
+        stopid,
         trip_gtfsid,
         trip_id,
         arrivaldelay,
@@ -8,7 +14,7 @@ with all_times as (
         created_at,
         route_id,
         route_shortName,
-        row_number() over (partition by trip_id, scheduledarrival order by arrivaldelay desc) as rn
+        row_number() over (partition by trip_id, scheduledarrival order by created_at desc) as rn
 )
 select *
 from all_times
