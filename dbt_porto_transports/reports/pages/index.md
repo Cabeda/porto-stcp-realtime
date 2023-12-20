@@ -2,7 +2,7 @@
 title: Info about bus and metro stops
 ---
 
-Go to settings and point to the anaylsis.duckdb
+Go to settings and point to the analysis.duckdb
 
 ## Stops
 
