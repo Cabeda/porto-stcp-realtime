@@ -1,0 +1,1 @@
+select * from sqlite_scan('stcp_1703086436.654.db', 'stop_realtime')
