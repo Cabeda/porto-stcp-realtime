@@ -1,4 +1,5 @@
 select
+    stopId,
     route_longName,
     route_shortName,
     serviceDay,
@@ -6,5 +7,5 @@ select
     count() filter (where realtime is false) as canceled,
     count() filter (where realtime is true) / count()::float as ratio
 from {{ref("canceled_trips")}}
-group by route_longName, route_shortName, serviceDay
+group by stopId, route_longName, route_shortName, serviceDay
 order by ratio desc

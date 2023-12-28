@@ -59,17 +59,17 @@ select stops.name, lat, lon, stops.route_shortName || ' - ' || stops.route_longN
 from canceled_trips_agg
 join stops using (stopId)
 where stops.route_longName != '-'
+and ratio > 0.1
 order by ratio asc
 limit 300
 ```
-
 
 <LeafletMap
 data={stops_cancelations}
 lat=lat
 long=lon
-name=name
-tooltipFields={[ 'routeName', 'ratio']}
+name=routeName
+tooltipFields={[ 'ratio']}
 height=500
 />
 
@@ -80,9 +80,10 @@ select stops.route_shortName || ' - ' || stops.route_longName as routeName, avg(
 from canceled_trips_agg
 join stops using (stopId)
 where stops.route_longName != '-'
+and ratio > 0.1
 group by routeName, ratio
 order by ratio asc
-limit 10
+limit 50
 ```
 
 <LeafletMap
@@ -95,5 +96,17 @@ height=500
 width=1000
 />
 
+```sql line_cancelations_day
+select stops.route_shortName || ' - ' || stops.route_longName as routeName,  date_trunc('day', canceled_trips_daily_agg.serviceday)  as serviceday, avg(ratio) as ratio,
+from canceled_trips_daily_agg
+join stops using (stopId)
+where stops.route_longName != '-'
+group by all
+```
 
-TODO: Average cancellations each day (all and per line)
+<LineChart
+data={line_cancelations_day}  
+ x=serviceday
+y=ratio
+series=routeName
+/>

@@ -3,7 +3,6 @@ import { DB, PreparedQuery } from "https://deno.land/x/sqlite/mod.ts";
 import { APIResponse, StopRealtime } from "./types.ts";
 
 function initDB(db: DB): PreparedQuery {
-  db.execute("create table if not exists stops_history_raw (data json)");
 
   db.execute(`CREATE TABLE if not exists stop_realtime (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -324,4 +323,5 @@ const date = new Date().getTime() / 1000;
 const db = new DB(`stcp_${date}.db`);
 const stmt = initDB(db);
 await run(db, stmt);
+console.log("Sleeping for 1 minute");
 setInterval(() => run(db, stmt), 60 * 1000); // Run every minute
