@@ -1,1 +1,1 @@
-select * from 's3://porto-realtime-transport/file_data/2023/12/1/1701388811.parquet'
+select * from 's3://porto-realtime-transport/file_data/2024/1/6/1704538068.parquet'
