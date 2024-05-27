@@ -7,7 +7,7 @@ Go to settings and point to the analysis.duckdb
 ## DuckDB tables
 
 ```sql tables
-show tables
+select * from analysis.tables
 ```
 
 ## Stops
@@ -15,7 +15,7 @@ show tables
 ```sql total_stops
 select
   count(distinct stopId) as total
-from stops
+from analysis.stops
 limit 1
 ```
 
@@ -25,18 +25,18 @@ limit 1
 ```sql stops
 select
   name, lat, lon, zoneId, route_shortName, route_longName
-from stops
+from analysis.stops
 limit 100
 ```
 
-<LeafletMap
+<!-- <LeafletMap
 data={stops}
 lat=lat
 long=lon
 name=name
 tooltipFields={['zoneId', 'route_shortName', 'route_longName']}
 height=500
-/>
+/> -->
 
 
 ## Total trips
@@ -44,7 +44,7 @@ height=500
 ```sql total_trips
 select
   count(*) as total
-from trip_stops
+from analysis.trip_stops
 limit 1
 ```
 

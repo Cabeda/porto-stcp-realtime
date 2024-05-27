@@ -1,25 +1,28 @@
-  {
-    "name": "my-evidence-project",
+{
+    "name": "porto-evidence",
     "version": "0.0.1",
     "scripts": {
+      "preinstall": "node .evidence/node-version.js",
       "build": "evidence build",
       "build:strict": "evidence build:strict",
       "dev": "evidence dev --open /",
-      "test": "evidence build"
+      "test": "evidence build",
+      "sources": "evidence sources",
+      "preview": "evidence preview"
     },
     "engines": {
       "npm": ">=7.0.0",
-      "node": ">=16.14.0"
+      "node": ">=18.0.0"
     },
     "type": "module",
     "dependencies": {
-      "@evidence-dev/core-components": "^2.1.4",
-      "@evidence-dev/evidence": "^23.0.4",
-      "@evidence-dev/labs": "^0.0.13"
+      "@evidence-dev/core-components": "^4.1.1",
+      "@evidence-dev/duckdb": "^1.0.8",
+      "@evidence-dev/evidence": "^34.0.1"
     },
     "overrides": {
       "jsonwebtoken": "9.0.0",
       "trim@<0.0.3": ">0.0.3",
       "sqlite3": "5.1.5"
     }
-  }
+}

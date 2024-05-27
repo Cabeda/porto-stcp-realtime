@@ -1,17 +1,20 @@
 [tool.poetry]
-name = "dbt-porto-transports"
+name = "dbtportotransports"
 version = "0.1.0"
 description = ""
 authors = ["José Cabeda <jose.cabeda@fidel.uk>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
-dbt-core="1.6.2"
-dbt-duckdb = "1.6.2"
-boto3 = "^1.29.0"
+python = "^3.12"
+dbt-duckdb = "1.8.0"
+duckdb = "0.10"
+boto3 = "^1.34.113"
 
 
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.29.4"
+
+[project]
+name="dbtportotransports"
+version="0.1.0"

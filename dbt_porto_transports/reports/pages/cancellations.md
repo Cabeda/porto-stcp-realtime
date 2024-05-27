@@ -64,14 +64,14 @@ order by ratio asc
 limit 300
 ```
 
-<LeafletMap
+<!-- <LeafletMap
 data={stops_cancelations}
 lat=lat
 long=lon
 name=routeName
 tooltipFields={[ 'ratio']}
 height=500
-/>
+/> -->
 
 ## Line cancelations
 
@@ -86,7 +86,7 @@ order by ratio asc
 limit 50
 ```
 
-<LeafletMap
+<!-- <LeafletMap
 data={line_cancelations}
 lat=lat
 long=lon
@@ -94,7 +94,7 @@ name=name
 tooltipFields={[ 'routeName', 'ratio']}
 height=500
 width=1000
-/>
+/> -->
 
 ```sql line_cancelations_day
 select stops.route_shortName || ' - ' || stops.route_longName as routeName,  date_trunc('day', canceled_trips_daily_agg.serviceday)  as serviceday, avg(ratio) as ratio,

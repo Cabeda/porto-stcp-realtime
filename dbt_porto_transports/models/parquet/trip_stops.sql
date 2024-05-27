@@ -5,6 +5,24 @@
 }}
 
 with unnested_stops as (
+    /* select
+        id,
+        name,
+        code,
+        lat,
+        lon,
+        "locationType",
+        "zoneId",
+        "vehicleType",
+        "vehicleMode",
+        "platformCode",
+        "gtfsId",
+        "desc",
+        created_at,
+        UNNEST(_stoptimeswithoutpatterns24f6pa) as stop_times
+    {# from {{ref('trip_stops_raw')}} #}
+    from {{ ref('december') }}
+    union all */
     select
         id,
         name,
@@ -21,7 +39,7 @@ with unnested_stops as (
         created_at,
         UNNEST(_stoptimeswithoutpatterns24f6pa) as stop_times
     {# from {{ref('trip_stops_raw')}} #}
-    from {{ ref('december') }} -- using this to speed up tests for now
+    from {{ ref('may') }}
 )
 
 select
