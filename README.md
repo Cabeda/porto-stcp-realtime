@@ -1,85 +1,95 @@
 # porto-stcp-realtime
 
-Repo to store the code for the porto-stcp-realtime project.
+Collects real-time STCP bus data from Porto, Portugal and analyzes it against the provided schedule. Data is fetched from the [explore.porto.pt](https://explore.porto.pt/) GraphQL API every minute.
 
-The goal of this project is to retrieve the real-time information of the STCP buses in Porto, Portugal and analyze it against the provided schedule.
+## Architecture
 
-## Run Deno
+```
+explore.porto.pt GraphQL API
+        │
+        ├──► Python Loader (AWS Lambda) ──► Parquet ──► S3
+        │                                                │
+        │                                                ▼
+        │                                     dbt (DuckDB) ──► Evidence Reports
+        │
+        └──► Deno Loader (alternative) ──► SQLite (local/K8s)
+```
 
-On the deno_loader folder, install deno and run the following command:
+## Components
+
+### Python Loader (`loader/`)
+
+AWS Lambda function (Python 3.11) that fetches real-time stop data and writes Parquet files to S3.
+
+- Runs every minute via CloudWatch scheduled event
+- Writes to `s3://porto-realtime-transport/file_data/{year}/{month}/{day}/{epoch}.parquet`
+- Error notifications via SNS
+- Dependencies: pandas, pyarrow, boto3 (via AWS SDK Pandas Lambda layer)
 
 ```shell
+cd loader
+poetry install
+poetry run python3 main.py  # runs locally in a loop
+```
+
+**Deploy** (via Serverless Framework):
+
+```shell
+cd loader
+npx serverless deploy
+```
+
+CI/CD: Automatically deployed on push to `main` via GitHub Actions.
+
+### Deno Loader (`deno_loader/`)
+
+Alternative loader that stores data in a local SQLite database. Deployable via Docker/Kubernetes.
+
+```shell
+cd deno_loader
 deno run --allow-read --allow-net --allow-write main.ts
 ```
 
-## Run Python loader script
-
-On the loader folder, install poetry and run the following commands:
+**Docker:**
 
 ```shell
+docker build -t porto-stcp .
+docker run porto-stcp
+```
+
+**Kubernetes:** See `deployment.yml` for K8s manifest.
+
+### dbt Project (`dbt_porto_transports/`)
+
+Data transformation and analysis using [dbt](https://docs.getdbt.com/) with the [dbt-duckdb](https://github.com/jwills/dbt-duckdb) adapter. Reads Parquet files from S3 and produces analytical models (trip stops, cancellations, aggregations).
+
+```shell
+cd dbt_porto_transports
 poetry install
-poetry run python3 loader.py
+poetry run dbt run
 ```
 
-### Deployment
+**Reports** (`dbt_porto_transports/reports/`): Built with [Evidence](https://evidence.dev/) for data visualization.
 
-In order to deploy the example, you need to run the following command:
-
-```
-$ serverless deploy
-```
-
-After running deploy, you should see output similar to:
-
-```bash
-Deploying aws-python-project to stage dev (us-east-1)
-
-✔ Service deployed to stack aws-python-project-dev (112s)
-
-functions:
-  hello: aws-python-project-dev-hello (1.5 kB)
+```shell
+cd dbt_porto_transports/reports
+npm install
+npm run dev
 ```
 
-### Invocation
+## Infrastructure
 
-After successful deployment, you can invoke the deployed function by using the following command:
+| Resource | Details |
+|---|---|
+| AWS Region | `eu-central-1` |
+| S3 Bucket | `porto-realtime-transport` |
+| Lambda Runtime | Python 3.11 (arm64) |
+| Lambda Layer | AWS SDK Pandas (arm64) |
+| SNS Topic | Error notifications |
+| CI/CD | GitHub Actions → Serverless Framework |
 
-```bash
-serverless invoke --function hello
-```
+## Data Source
 
-Which should result in response similar to the following:
+GraphQL endpoint: `https://otp.services.porto.digital/otp/routers/default/index/graphql`
 
-```json
-{
-  "statusCode": 200,
-  "body": "{\"message\": \"Go Serverless v3.0! Your function executed successfully!\", \"input\": {}}"
-}
-```
-
-### Local development
-
-You can invoke your function locally by using the following command:
-
-```bash
-serverless invoke local --function hello
-```
-
-Which should result in response similar to the following:
-
-```
-{
-    "statusCode": 200,
-    "body": "{\"message\": \"Go Serverless v3.0! Your function executed successfully!\", \"input\": {}}"
-}
-```
-
-### Bundling dependencies
-
-In case you would like to include third-party dependencies, you will need to use a plugin called `serverless-python-requirements`. You can set it up by running the following command:
-
-```bash
-serverless plugin install -n serverless-python-requirements
-```
-
-Running the above will automatically add `serverless-python-requirements` to `plugins` section in your `serverless.yml` file and add it as a `devDependency` to `package.json` file. The `package.json` file will be automatically created if it doesn't exist beforehand. Now you will be able to add your dependencies to `requirements.txt` file (`Pipfile` and `pyproject.toml` is also supported but requires additional configuration) and they will be automatically injected to Lambda package during build process. For more details about the plugin's configuration, please refer to [official documentation](https://github.com/UnitedIncome/serverless-python-requirements).
+Fetches all stops with up to 5 upcoming departures within a 12-hour window, including real-time vs scheduled arrival/departure times, delays, route info, and agency data.
